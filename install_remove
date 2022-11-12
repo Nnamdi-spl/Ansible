@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  
+  - name: install apache2 package
+    yum:
+      name: apache   
+      state: absent
+  
+  - name: update repository index
+    yum:
+      name: update_cache = yes 
+	  
+  - name: add php support for apache
+    yum:
+      name: libapache2-mod-php
